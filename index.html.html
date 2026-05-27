@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رسالة خاصة</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            /* خلفية ناعمة وأنثوية جداً تناسب ذوق البنات */
+            background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            transition: background 1.5s ease;
+        }
+
+        .container {
+            text-align: center;
+            width: 90%;
+            max-width: 550px;
+            background-color: rgba(255, 255, 255, 0.9);
+            /* تأثير زجاجي ناعم خلف الكارت */
+            backdrop-filter: blur(10px);
+            padding: 50px 30px;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(226, 149, 149, 0.15);
+            
+            /* أنيميشن دخول الكارت أول ما الصفحة تفتح */
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInCard 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            
+            /* انتقال ناعم وقت الاختفاء */
+            transition: opacity 1.2s ease, transform 1.2s ease;
+        }
+
+        @keyframes fadeInCard {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* الجملة الأولى الكبيرة بالفيونكة */
+        .main-title {
+            font-size: 34px;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 25px;
+            line-height: 1.5;
+            letter-spacing: -0.5px;
+        }
+
+        /* الجملة الثانية بلون هادي وحجم متناسق */
+        .sub-title {
+            font-size: 21px;
+            color: #718096;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        /* تأثير الاختفاء الاحترافي بعد 15 ثانية */
+        .fade-out-all {
+            opacity: 0;
+            transform: scale(0.95) translateY(-10px);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="cardContainer" class="container">
+        <h1 class="main-title">كل سنة وانتي طيبة يا دكتورة أسماء 🎀</h1>
+
+        <p class="sub-title">مع إنك نسياني أنا مقدرش أنساكي</p>
+    </div>
+
+    <script>
+        // بعد 15 ثانية (15000 مللي ثانية) كل شيء يختفي بسلاسة
+        setTimeout(function() {
+            var container = document.getElementById('cardContainer');
+            
+            // إخفاء الكارت بأنيميشن سحب لفوق خفيف مع زوم
+            container.classList.add('fade-out-all');
+            
+            // تحويل الخلفية للأبيض السادة تماماً بعد اختفاء الكارت
+            setTimeout(function() {
+                document.body.style.background = '#ffffff';
+            }, 1200);
+
+        }, 15000);
+    </script>
+
+</body>
+</html>
